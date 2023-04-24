@@ -8,13 +8,14 @@ import { json } from "body-parser";
 import cors from "cors";
 import { connectDB } from "./db/connect";
 import { UserRoutes } from "./routes";
+import { limiter } from "./middleware/rateLimiter";
 
 const app = express();
 app.use(json());
 app.use(cors());
 
 // routes
-app.use("/users", UserRoutes);
+app.use("/users", limiter, UserRoutes);
 
 // handle errors
 app.use(
