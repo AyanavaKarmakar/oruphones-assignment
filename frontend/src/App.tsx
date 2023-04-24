@@ -1,7 +1,12 @@
-import { LowIncomeCarsTable } from "./components";
+import { LowIncomeCarsTable, MaleExpensivePhoneTable } from "./components";
 
 function App() {
-  return <LowIncomeCarsTable />;
+  return (
+    <div>
+      <LowIncomeCarsTable />
+      <MaleExpensivePhoneTable />
+    </div>
+  );
 }
 
 export default App;
