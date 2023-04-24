@@ -1,4 +1,10 @@
-import { LowIncomeCarsTable, LuxuryCarAndNoDigitEmail, MaleExpensivePhoneTable, UsersWithLastNameAndQuote } from "./components";
+import {
+  LowIncomeCarsTable,
+  LuxuryCarAndNoDigitEmail,
+  MaleExpensivePhoneTable,
+  Top10Cities,
+  UsersWithLastNameAndQuote,
+} from "./components";
 
 function App() {
   return (
@@ -7,6 +13,7 @@ function App() {
       <MaleExpensivePhoneTable />
       <UsersWithLastNameAndQuote />
       <LuxuryCarAndNoDigitEmail />
+      <Top10Cities />
     </div>
   );
 }

@@ -8,10 +8,31 @@ export const getTop10CitiesWithHighestUserCountAndAverageIncome = async (
   try {
     const topCities = await User.aggregate([
       {
+        $project: {
+          city: 1,
+          income: {
+            $toDouble: {
+              $substrBytes: [
+                "$income",
+                { $add: [{ $indexOfBytes: ["$income", "."] }, -1] },
+                { $add: [-1, { $indexOfBytes: ["$income", "."] }] },
+              ],
+            },
+          },
+        },
+      },
+      {
         $group: {
           _id: "$city",
           userCount: { $sum: 1 },
           avgIncome: { $avg: "$income" },
+        },
+      },
+      {
+        $project: {
+          _id: 1,
+          userCount: 1,
+          avgIncome: { $round: ["$avgIncome", 2] },
         },
       },
       { $sort: { userCount: -1 } },

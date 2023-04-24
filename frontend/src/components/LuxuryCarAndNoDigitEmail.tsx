@@ -35,7 +35,7 @@ export const LuxuryCarAndNoDigitEmail = () => {
   return (
     <div>
       <div>
-        Users which have a car of brand “BMW”, “Mercedes” or “Audi” and whose
+        Users which have a car of brand "BMW", "Mercedes" or "Audi" and whose
         email does not include any digit.
       </div>
 
