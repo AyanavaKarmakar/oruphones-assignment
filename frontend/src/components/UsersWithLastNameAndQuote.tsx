@@ -3,18 +3,18 @@ import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { filterUserData } from "../utils/filterUserData";
 
-export const MaleExpensivePhoneTable = () => {
+export const UsersWithLastNameAndQuote = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [iserror, setIsError] = useState(false);
 
-  const FetchUsersWithMaleExpensivePhone = useQuery({
-    queryKey: ["FetchUsersWithMaleExpensivePhone"],
+  const FetchUsersUsersWithLastNameAndQuote = useQuery({
+    queryKey: ["FetchUsersWithLastNameAndQuote"],
     queryFn: async () => {
       setIsError(false);
       setIsLoading(true);
 
       const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/users/male-expensive-phones`
+        `${import.meta.env.VITE_API_URL}/users/last-name-quote`
       );
 
       if (!response.ok) {
@@ -34,9 +34,12 @@ export const MaleExpensivePhoneTable = () => {
 
   return (
     <div>
-      <div>Male Users which have phone price greater than 10,000</div>
+      <div>
+        Users whose last name starts with “M” and has a quote character length
+        greater than 15 and email includes his/her last name.
+      </div>
 
-      {FetchUsersWithMaleExpensivePhone?.data.length === 0 && !isLoading ? (
+      {FetchUsersUsersWithLastNameAndQuote?.data.length === 0 && !isLoading ? (
         <div>No data found!</div>
       ) : (
         <table className="table-auto border-x border-b">
@@ -76,7 +79,7 @@ export const MaleExpensivePhoneTable = () => {
           </thead>
 
           <tbody>
-            {FetchUsersWithMaleExpensivePhone?.data?.map(
+            {FetchUsersUsersWithLastNameAndQuote?.data?.map(
               (data: any, index: any) => (
                 <tr
                   key={index}

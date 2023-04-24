@@ -39,62 +39,66 @@ export const LowIncomeCarsTable = () => {
         or "Mercedes"
       </div>
 
-      <table className="table-auto border-x border-b">
-        <thead>
-          <tr>
-            <th className="font-bold p-1 lg:p-2 border-b border-l border-gray-700 text-left bg-gray-700 text-white">
-              ID
-            </th>
-            <th className="font-bold p-1 lg:p-2 border-b border-l border-gray-700 text-left bg-gray-700 text-white">
-              First Name
-            </th>
-            <th className="font-bold p-1 lg:p-2 border-b border-l border-gray-700 text-left bg-gray-700 text-white">
-              Last Name
-            </th>
-            <th className="font-bold p-1 lg:p-2 border-b border-l border-gray-700 text-left bg-gray-700 text-white">
-              Email
-            </th>
-            <th className="font-bold p-1 lg:p-2 border-b border-l border-gray-700 text-left bg-gray-700 text-white">
-              Gender
-            </th>
-            <th className="font-bold p-1 lg:p-2 border-b border-l border-gray-700 text-left bg-gray-700 text-white">
-              Income
-            </th>
-            <th className="font-bold p-1 lg:p-2 border-b border-l border-gray-700 text-left bg-gray-700 text-white">
-              City
-            </th>
-            <th className="font-bold p-1 lg:p-2 border-b border-l border-gray-700 text-left bg-gray-700 text-white">
-              Car
-            </th>
-            <th className="font-bold p-1 lg:p-2 border-b border-l border-gray-700 text-left bg-gray-700 text-white">
-              Quote
-            </th>
-            <th className="font-bold p-1 lg:p-2 border-b border-l border-gray-700 text-left bg-gray-700 text-white">
-              Phone Price
-            </th>
-          </tr>
-        </thead>
+      {FetchUsersWithLowIncomeAndLuxuryCar?.data.length === 0 && !isLoading ? (
+        <div>No data found!</div>
+      ) : (
+        <table className="table-auto border-x border-b">
+          <thead>
+            <tr>
+              <th className="font-bold p-1 lg:p-2 border-b border-l border-gray-700 text-left bg-gray-700 text-white">
+                ID
+              </th>
+              <th className="font-bold p-1 lg:p-2 border-b border-l border-gray-700 text-left bg-gray-700 text-white">
+                First Name
+              </th>
+              <th className="font-bold p-1 lg:p-2 border-b border-l border-gray-700 text-left bg-gray-700 text-white">
+                Last Name
+              </th>
+              <th className="font-bold p-1 lg:p-2 border-b border-l border-gray-700 text-left bg-gray-700 text-white">
+                Email
+              </th>
+              <th className="font-bold p-1 lg:p-2 border-b border-l border-gray-700 text-left bg-gray-700 text-white">
+                Gender
+              </th>
+              <th className="font-bold p-1 lg:p-2 border-b border-l border-gray-700 text-left bg-gray-700 text-white">
+                Income
+              </th>
+              <th className="font-bold p-1 lg:p-2 border-b border-l border-gray-700 text-left bg-gray-700 text-white">
+                City
+              </th>
+              <th className="font-bold p-1 lg:p-2 border-b border-l border-gray-700 text-left bg-gray-700 text-white">
+                Car
+              </th>
+              <th className="font-bold p-1 lg:p-2 border-b border-l border-gray-700 text-left bg-gray-700 text-white">
+                Quote
+              </th>
+              <th className="font-bold p-1 lg:p-2 border-b border-l border-gray-700 text-left bg-gray-700 text-white">
+                Phone Price
+              </th>
+            </tr>
+          </thead>
 
-        <tbody>
-          {FetchUsersWithLowIncomeAndLuxuryCar?.data?.map(
-            (data: any, index: any) => (
-              <tr
-                key={index}
-                className="odd:bg-gray-100 hover:!bg-stone-200 cursor-pointer"
-              >
-                {Object.keys(data).map((key) => (
-                  <td
-                    key={key}
-                    className="p-1 lg:p-2 border-b border-l text-left"
-                  >
-                    {data[key]}
-                  </td>
-                ))}
-              </tr>
-            )
-          )}
-        </tbody>
-      </table>
+          <tbody>
+            {FetchUsersWithLowIncomeAndLuxuryCar?.data?.map(
+              (data: any, index: any) => (
+                <tr
+                  key={index}
+                  className="odd:bg-gray-100 hover:!bg-stone-200 cursor-pointer"
+                >
+                  {Object.keys(data).map((key) => (
+                    <td
+                      key={key}
+                      className="p-1 lg:p-2 border-b border-l text-left"
+                    >
+                      {data[key]}
+                    </td>
+                  ))}
+                </tr>
+              )
+            )}
+          </tbody>
+        </table>
+      )}
     </div>
   );
 };
