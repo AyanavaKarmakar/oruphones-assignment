@@ -9,6 +9,7 @@ import cors from "cors";
 import { connectDB } from "./db/connect";
 import { UserRoutes } from "./routes/user";
 import { limiter } from "./middleware/rateLimiter";
+import { CityRoutes } from "./routes/city";
 
 const app = express();
 app.use(json());
@@ -16,6 +17,7 @@ app.use(cors());
 
 // routes
 app.use("/users", limiter, UserRoutes);
+app.use("/cities", limiter, CityRoutes);
 
 // handle errors
 app.use(
