@@ -1,5 +1,5 @@
 import type { Request, Response } from "express";
-import { User } from "../models/user";
+import { type IUser, User } from "../models/user";
 
 export const getUsersWithLowIncomeAndCars = async (
   req: Request,
@@ -26,6 +26,25 @@ export const getMaleUsersWithExpensivePhones = async (
       phone_price: { $gt: 10000 },
     });
     res.status(200).json(users);
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching users", error });
+  }
+};
+
+export const getUsersWithLastNameAndQuote = async (
+  req: Request,
+  res: Response
+) => {
+  try {
+    const users = await User.find({
+      last_name: { $regex: /^M/ },
+      quote: { $regex: /^.{16,}/ },
+    });
+
+    const filteredUsers = users.filter((user: IUser) =>
+      user.email.includes(user.last_name)
+    );
+    res.status(200).json(filteredUsers);
   } catch (error) {
     res.status(500).json({ message: "Error fetching users", error });
   }
