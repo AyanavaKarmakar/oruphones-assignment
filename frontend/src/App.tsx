@@ -1,5 +1,7 @@
+import { LowIncomeCarsTable } from "./components";
+
 function App() {
-  return <div className="text-3xl">Hello</div>;
+  return <LowIncomeCarsTable />;
 }
 
 export default App;
