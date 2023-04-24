@@ -3,7 +3,7 @@ import {
   getMaleUsersWithExpensivePhones,
   getUsersWithLastNameAndQuote,
   getUsersWithLowIncomeAndCars,
-} from "../controllers";
+} from "../controllers/user";
 
 const router = Router();
 

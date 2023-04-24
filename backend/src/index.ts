@@ -7,7 +7,7 @@ import "dotenv/config";
 import { json } from "body-parser";
 import cors from "cors";
 import { connectDB } from "./db/connect";
-import { UserRoutes } from "./routes";
+import { UserRoutes } from "./routes/user";
 import { limiter } from "./middleware/rateLimiter";
 
 const app = express();
