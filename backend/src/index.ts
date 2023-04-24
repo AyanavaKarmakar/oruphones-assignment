@@ -7,15 +7,14 @@ import "dotenv/config";
 import { json } from "body-parser";
 import cors from "cors";
 import { connectDB } from "./db/connect";
+import { UserRoutes } from "./routes";
 
 const app = express();
 app.use(json());
 app.use(cors());
 
 // routes
-app.use("/", (req: Request, res: Response) => {
-  res.send("Backend API!");
-});
+app.use("/users", UserRoutes);
 
 // handle errors
 app.use(
