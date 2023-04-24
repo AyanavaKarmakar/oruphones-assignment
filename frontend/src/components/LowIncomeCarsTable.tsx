@@ -33,14 +33,16 @@ export const LowIncomeCarsTable = () => {
   if (iserror) return <div>Something went wrong! Please try again!</div>;
 
   return (
-    <div>
-      <div>
+    <>
+      <div className="text-3xl tetx-black font-bold">
         Users which have income lower than $5 USD and have a car of brand "BMW"
         or "Mercedes"
       </div>
 
       {FetchUsersWithLowIncomeAndLuxuryCar?.data?.length === 0 && !isLoading ? (
-        <div>No data found!</div>
+        <div className="text-2xl text-red-600 font-semibold">
+          No data found!
+        </div>
       ) : (
         <table className="table-auto border-x border-b">
           <thead>
@@ -99,6 +101,6 @@ export const LowIncomeCarsTable = () => {
           </tbody>
         </table>
       )}
-    </div>
+    </>
   );
 };

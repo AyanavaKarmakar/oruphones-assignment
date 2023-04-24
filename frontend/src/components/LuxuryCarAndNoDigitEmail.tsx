@@ -33,15 +33,17 @@ export const LuxuryCarAndNoDigitEmail = () => {
   if (iserror) return <div>Something went wrong! Please try again!</div>;
 
   return (
-    <div>
-      <div>
+    <>
+      <div className="text-3xl tetx-black font-bold">
         Users which have a car of brand "BMW", "Mercedes" or "Audi" and whose
         email does not include any digit.
       </div>
 
       {FetchUsersUsersLuxuryCarAndNoDigitEmail?.data?.length === 0 &&
       !isLoading ? (
-        <div>No data found!</div>
+        <div className="text-2xl text-red-600 font-semibold">
+          No data found!
+        </div>
       ) : (
         <table className="table-auto border-x border-b">
           <thead>
@@ -100,6 +102,6 @@ export const LuxuryCarAndNoDigitEmail = () => {
           </tbody>
         </table>
       )}
-    </div>
+    </>
   );
 };

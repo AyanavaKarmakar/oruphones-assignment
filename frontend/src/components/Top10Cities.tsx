@@ -36,14 +36,16 @@ export const Top10Cities = () => {
   console.log(FetchTop10Cities?.data);
 
   return (
-    <div>
-      <div>
+    <>
+      <div className="text-3xl tetx-black font-bold">
         Top 10 cities which have the highest number of users and their average
         income
       </div>
 
       {FetchTop10Cities?.data?.length === 0 && !isLoading ? (
-        <div>No data found!</div>
+        <div className="text-2xl text-red-600 font-semibold">
+          No data found!
+        </div>
       ) : (
         <table className="table-auto border-x border-b">
           <thead>
@@ -79,6 +81,6 @@ export const Top10Cities = () => {
           </tbody>
         </table>
       )}
-    </div>
+    </>
   );
 };

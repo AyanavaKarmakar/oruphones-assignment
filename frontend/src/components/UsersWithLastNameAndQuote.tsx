@@ -33,14 +33,16 @@ export const UsersWithLastNameAndQuote = () => {
   if (iserror) return <div>Something went wrong! Please try again!</div>;
 
   return (
-    <div>
-      <div>
+    <>
+      <div className="text-3xl tetx-black font-bold">
         Users whose last name starts with “M” and has a quote character length
         greater than 15 and email includes his/her last name.
       </div>
 
       {FetchUsersUsersWithLastNameAndQuote?.data?.length === 0 && !isLoading ? (
-        <div>No data found!</div>
+        <div className="text-2xl text-red-600 font-semibold">
+          No data found!
+        </div>
       ) : (
         <table className="table-auto border-x border-b">
           <thead>
@@ -99,6 +101,6 @@ export const UsersWithLastNameAndQuote = () => {
           </tbody>
         </table>
       )}
-    </div>
+    </>
   );
 };
