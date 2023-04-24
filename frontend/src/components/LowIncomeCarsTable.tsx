@@ -39,7 +39,7 @@ export const LowIncomeCarsTable = () => {
         or "Mercedes"
       </div>
 
-      {FetchUsersWithLowIncomeAndLuxuryCar?.data.length === 0 && !isLoading ? (
+      {FetchUsersWithLowIncomeAndLuxuryCar?.data?.length === 0 && !isLoading ? (
         <div>No data found!</div>
       ) : (
         <table className="table-auto border-x border-b">

@@ -39,7 +39,7 @@ export const UsersWithLastNameAndQuote = () => {
         greater than 15 and email includes his/her last name.
       </div>
 
-      {FetchUsersUsersWithLastNameAndQuote?.data.length === 0 && !isLoading ? (
+      {FetchUsersUsersWithLastNameAndQuote?.data?.length === 0 && !isLoading ? (
         <div>No data found!</div>
       ) : (
         <table className="table-auto border-x border-b">

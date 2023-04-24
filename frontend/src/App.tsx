@@ -1,4 +1,4 @@
-import { LowIncomeCarsTable, MaleExpensivePhoneTable, UsersWithLastNameAndQuote } from "./components";
+import { LowIncomeCarsTable, LuxuryCarAndNoDigitEmail, MaleExpensivePhoneTable, UsersWithLastNameAndQuote } from "./components";
 
 function App() {
   return (
@@ -6,6 +6,7 @@ function App() {
       <LowIncomeCarsTable />
       <MaleExpensivePhoneTable />
       <UsersWithLastNameAndQuote />
+      <LuxuryCarAndNoDigitEmail />
     </div>
   );
 }

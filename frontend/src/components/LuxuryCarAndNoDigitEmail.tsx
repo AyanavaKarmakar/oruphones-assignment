@@ -3,18 +3,18 @@ import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { filterUserData } from "../utils/filterUserData";
 
-export const MaleExpensivePhoneTable = () => {
+export const LuxuryCarAndNoDigitEmail = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [iserror, setIsError] = useState(false);
 
-  const FetchUsersWithMaleExpensivePhone = useQuery({
-    queryKey: ["FetchUsersWithMaleExpensivePhone"],
+  const FetchUsersUsersLuxuryCarAndNoDigitEmail = useQuery({
+    queryKey: ["FetchUsersWithLuxuryCarAndNoDigitEmail"],
     queryFn: async () => {
       setIsError(false);
       setIsLoading(true);
 
       const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/users/male-expensive-phones`
+        `${import.meta.env.VITE_API_URL}/users/luxury-car-no-digit-email`
       );
 
       if (!response.ok) {
@@ -34,9 +34,13 @@ export const MaleExpensivePhoneTable = () => {
 
   return (
     <div>
-      <div>Male Users which have phone price greater than 10,000</div>
+      <div>
+        Users which have a car of brand “BMW”, “Mercedes” or “Audi” and whose
+        email does not include any digit.
+      </div>
 
-      {FetchUsersWithMaleExpensivePhone?.data?.length === 0 && !isLoading ? (
+      {FetchUsersUsersLuxuryCarAndNoDigitEmail?.data?.length === 0 &&
+      !isLoading ? (
         <div>No data found!</div>
       ) : (
         <table className="table-auto border-x border-b">
@@ -76,7 +80,7 @@ export const MaleExpensivePhoneTable = () => {
           </thead>
 
           <tbody>
-            {FetchUsersWithMaleExpensivePhone?.data?.map(
+            {FetchUsersUsersLuxuryCarAndNoDigitEmail?.data?.map(
               (data: any, index: any) => (
                 <tr
                   key={index}
