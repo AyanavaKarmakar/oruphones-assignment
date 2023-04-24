@@ -15,3 +15,18 @@ export const getUsersWithLowIncomeAndCars = async (
     res.status(500).json({ message: "Error fetching users", error });
   }
 };
+
+export const getMaleUsersWithExpensivePhones = async (
+  req: Request,
+  res: Response
+) => {
+  try {
+    const users = await User.find({
+      gender: "Male",
+      phone_price: { $gt: 10000 },
+    });
+    res.status(200).json(users);
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching users", error });
+  }
+};
