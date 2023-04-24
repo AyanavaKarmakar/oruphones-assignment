@@ -49,3 +49,20 @@ export const getUsersWithLastNameAndQuote = async (
     res.status(500).json({ message: "Error fetching users", error });
   }
 };
+
+export const getUsersWithLuxuryCarAndNoDigitEmail = async (
+  req: Request,
+  res: Response
+) => {
+  try {
+    const users = await User.find({
+      car_brand: { $in: ["BMW", "Mercedes", "Audi"] },
+      email: { $not: /\d/ },
+    });
+
+    res.status(200).json(users);
+  } catch (error) {
+    console.error("Error fetching users:", error);
+    res.status(500).json({ message: "Error fetching users", error });
+  }
+};
