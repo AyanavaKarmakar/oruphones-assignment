@@ -8,7 +8,7 @@ import {
 
 function App() {
   return (
-    <div>
+    <div className="flex flex-col gap-3 m-5 justify-center items-center text-center min-h-screen">
       <LowIncomeCarsTable />
       <MaleExpensivePhoneTable />
       <UsersWithLastNameAndQuote />
